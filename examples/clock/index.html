@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<style>
+  html, body { margin: 0; height: 100%; background: transparent; }
+  body {
+    display: grid; place-items: center;
+    font: 600 56px -apple-system, sans-serif; color: white;
+    text-shadow: 0 2px 12px rgba(0,0,0,.5);
+  }
+  #date { font-size: 16px; font-weight: 400; opacity: .8; }
+</style>
+</head>
+<body>
+  <div style="text-align:center"><div id="time"></div><div id="date"></div></div>
+  <script>
+    const tick = () => {
+      const now = new Date();
+      time.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      date.textContent = now.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' });
+    };
+    tick();
+    setInterval(tick, 1000);
+  </script>
+</body>
+</html>
